@@ -1,0 +1,19 @@
+[package]
+name = "ym2612-rust"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+description = "A Rust YM2612 / YM3438 (OPN2) core transcribed from, and proven equivalent to, ym2612-python"
+license = "MIT"
+repository = "https://github.com/alewman/ym2612-rust"
+publish = false
+
+[lib]
+name = "ym2612_rust"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+debug = 1
