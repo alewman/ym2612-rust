@@ -1,0 +1,31 @@
+name: CI
+
+# Private repository, so Actions minutes cost money: main and pull requests only,
+# and a newer run on the same ref cancels the older one. Rungs 2-5 need the
+# reference (a private repository) and run locally (README, "Reproducing").
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    name: fmt, clippy, test, rung 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --check
+      - run: cargo clippy --release --all-targets -- -D warnings
+      - run: cargo test --release
+      - run: scripts/rung1.sh
