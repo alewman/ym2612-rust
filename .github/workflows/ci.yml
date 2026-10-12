@@ -1,8 +1,8 @@
 name: CI
 
-# Private repository, so Actions minutes cost money: main and pull requests only,
-# and a newer run on the same ref cancels the older one. Rungs 2-5 need the
-# reference (a private repository) and run locally (README, "Reproducing").
+# Kept small: main and pull requests only, and a newer run on the same ref cancels
+# the older one. The ladder's rungs need the reference checked out (and rung 4 the
+# ROM-derived board streams), so they run locally (README, "Reproducing").
 on:
   push:
     branches: [main]

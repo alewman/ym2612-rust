@@ -56,8 +56,8 @@ its examples that this port found (see "Notes for the reference").
 CI (`.github/workflows/ci.yml`) runs `cargo fmt --check`, `cargo clippy -D
 warnings`, `cargo test` and rung 1 on main and pull requests. `cargo test` replays
 the thirteen example manifests against copies of the reference traces, without
-Python. Rungs 2-5 need the reference checked out, which is a private repository, so
-they run locally.
+Python. Rungs 2-5 need the reference checked out (`scripts/fetch_ym2612python.sh`),
+and rung 4 the ROM-derived board streams, so they run locally.
 
 ### Reproducing
 

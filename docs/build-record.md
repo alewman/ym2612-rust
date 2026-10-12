@@ -74,5 +74,5 @@ the reference. Its own seeded faults (`scripts/mutation.py`) include neither.
 - `cargo clippy` here needs the rustup stable toolchain:
   `CARGO_TARGET_DIR=target/clippy RUSTC=$(rustup which --toolchain stable rustc) rustup run stable cargo clippy --release --all-targets -- -D warnings`.
   The default rustup toolchain is an old nightly, and the system cargo has no clippy.
-- `scripts/fetch_ym2612python.sh` clones the private reference over HTTPS by
+- `scripts/fetch_ym2612python.sh` clones the reference over HTTPS by
   default. `YM2612_PYTHON_SOURCE=/data/emu/ym2612-python` clones the local one.
